@@ -1,0 +1,12 @@
+e2fsck 1.47.4 (6-Mar-2025)
+	Using EXT2FS Library version 1.47.4, 6-Mar-2025
+mke2fs 1.47.4 (6-Mar-2025)
+	Using EXT2FS Library version 1.47.4
+mount from util-linux 2.42.2 (libmount 2.42.2: btrfs, namespaces, idmapping, fd-based-mount, statmount, statx, fanotify, udev, assert, debug)
+df (GNU coreutils) 9.11
+Copyright (C) 2026 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <https://gnu.org/licenses/gpl.html>.
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+
+Written by Torbjörn Granlund, David MacKenzie, and Paul Eggert.
