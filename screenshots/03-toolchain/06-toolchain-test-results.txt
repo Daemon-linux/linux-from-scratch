@@ -1,0 +1,17 @@
+{
+    printf '%s\n' 'int main(void) { return 0; }' \
+        > /tmp/toolchain-test.c
+
+    gcc -Wall -Wextra -O2 \
+        /tmp/toolchain-test.c \
+        -o /tmp/toolchain-test
+
+    printf '\nCompilation completed.\n'
+
+    /tmp/toolchain-test
+    printf 'Program exit status: %s\n' "$?"
+} > 06-toolchain-test-results.txt 2>&1
+
+
+Compilation completed.
+Program exit status: 0
