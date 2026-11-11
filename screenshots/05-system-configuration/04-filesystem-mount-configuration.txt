@@ -1,0 +1,8 @@
+--- /etc/fstab ---
+# Begin /etc/fstab
+
+# file system                              mount-point  type  options   dump  fsck order
+
+UUID=37fa495c-2107-4c99-852e-827b8d56182b  /            ext4  defaults  1     1
+
+# End /etc/fstab

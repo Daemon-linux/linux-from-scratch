@@ -1,0 +1,4 @@
+--- Timezone symlink ---
+/usr/share/zoneinfo/Asia/Tehran
+
+--- Timezone configuration ---
