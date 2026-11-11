@@ -1,0 +1,10 @@
+NAME    SIZE TYPE FSTYPE LABEL  UUID                                 MOUNTPOINTS
+sr0    1024M rom                                                     
+zram0     8G disk swap   zram0  4550195d-7cc9-4668-8036-16747b240be4 [SWAP]
+vda      80G disk                                                    
+├─vda1  600M part vfat          59B0-46A4                            /boot/efi
+├─vda2    2G part ext4          bdea9f56-2b40-4ac5-96ba-d4ff946bed0d /boot
+└─vda3 77.4G part btrfs  fedora c37864f9-f685-49b8-b7db-7980867dcb27 /home
+                                                                     /
+vdb      80G disk                                                    
+└─vdb1   80G part ext4   LFS    37fa495c-2107-4c99-852e-827b8d56182b /mnt/lfs

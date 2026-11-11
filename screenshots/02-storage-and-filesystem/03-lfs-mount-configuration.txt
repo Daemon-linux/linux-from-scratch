@@ -1,0 +1,2 @@
+TARGET   SOURCE    FSTYPE OPTIONS
+/mnt/lfs /dev/vdb1 ext4   rw,relatime,seclabel
