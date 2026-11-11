@@ -1,0 +1,5 @@
+Linux Kernel Images:
+vmlinuz-7.1.8-lfs-13.1-systemd
+
+Installed Kernel Module Directories:
+7.1.8

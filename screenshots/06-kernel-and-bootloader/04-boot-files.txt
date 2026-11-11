@@ -1,0 +1,11 @@
+--- /boot directory ---
+total 24M
+drwxr-xr-x  4 root root 4.0K Nov  4 18:53 .
+dr-xr-xr-x 20 root root 4.0K Oct 22 19:52 ..
+-rw-r--r--  1 root root 145K Nov  4 17:58 config-7.1.8
+drwxr-xr-x  2 root root 4.0K Nov  4 18:45 efi
+drwxr-xr-x  5 root root 4.0K Nov  4 19:00 grub
+-rw-r--r--  1 root root 9.0M Nov  4 17:58 System.map-7.1.8
+-rw-r--r--  1 root root  15M Nov  4 17:58 vmlinuz-7.1.8-lfs-13.1-systemd
+
+--- EFI directory ---

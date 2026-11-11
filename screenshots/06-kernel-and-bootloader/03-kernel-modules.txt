@@ -1,0 +1,16 @@
+Installed Kernel Modules:
+/lib/modules/7.1.8/kernel/drivers/thermal/intel/x86_pkg_temp_thermal.ko
+/lib/modules/7.1.8/kernel/fs/efivarfs/efivarfs.ko
+/lib/modules/7.1.8/kernel/net/ipv4/ip_tunnel.ko
+/lib/modules/7.1.8/kernel/net/ipv4/netfilter/nf_reject_ipv4.ko
+/lib/modules/7.1.8/kernel/net/ipv4/tunnel4.ko
+/lib/modules/7.1.8/kernel/net/ipv6/netfilter/nf_reject_ipv6.ko
+/lib/modules/7.1.8/kernel/net/ipv6/sit.ko
+/lib/modules/7.1.8/kernel/net/netfilter/nf_log_syslog.ko
+/lib/modules/7.1.8/kernel/net/netfilter/xt_addrtype.ko
+/lib/modules/7.1.8/kernel/net/netfilter/xt_LOG.ko
+/lib/modules/7.1.8/kernel/net/netfilter/xt_mark.ko
+/lib/modules/7.1.8/kernel/net/netfilter/xt_MASQUERADE.ko
+
+Module Directory Sizes:
+888K	/lib/modules/7.1.8

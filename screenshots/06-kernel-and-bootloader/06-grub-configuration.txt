@@ -1,0 +1,18 @@
+--- GRUB configuration ---
+# Begin /boot/grub/grub.cfg
+
+set default=0
+set timeout=5
+
+insmod part_gpt
+insmod ext2
+
+search --no-floppy --fs-uuid --set=root 37fa495c-2107-4c99-852e-827b8d56182b
+
+set gfxpayload=1024x768x32
+
+menuentry "GNU/Linux, Linux 7.1.8-lfs-13.1-systemd" {
+    linux /boot/vmlinuz-7.1.8-lfs-13.1-systemd root=PARTUUID=8f8887a7-a8f3-4f91-b53c-16a14a3e78b5 ro
+}
+
+# End /boot/grub/grub.cfg
