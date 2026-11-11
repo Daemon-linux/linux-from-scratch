@@ -1,0 +1,47 @@
+# Local LFS build trees — do not commit generated system files
+/sources/
+/tools/
+/mnt/
+/build/
+/tmp/
+/temp/
+
+# Raw, unfiltered build output; keep curated notes and summaries
+/build-logs/raw/
+
+# Compiled objects and libraries
+*.o
+*.a
+*.so
+*.so.*
+*.class
+
+# Editor and temporary files
+*~
+*.swp
+*.swo
+*.bak
+*.tmp
+
+# Local environment and secrets
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+id_rsa
+id_ed25519
+
+# Python cache / virtual environments
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Operating system files
+.DS_Store
+Thumbs.db
+
+# IDE settings
+.idea/
+.vscode/
