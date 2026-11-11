@@ -6,14 +6,14 @@
 
 <p align="center">
   <img src="https://img.shields.io/badge/PROJECT-LINUX%20FROM%20SCRATCH-38BDF8?style=for-the-badge&logo=linux&logoColor=white" />
-  <img src="https://img.shields.io/badge/ARCHITECTURE-x86__64-0D1117?style=for-the-badge" />
-  <img src="https://img.shields.io/badge/BUILD-SYSTEMD-0D1117?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/ARCHITECTURE-x86__64-2563EB?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/BUILD-SYSTEMD-475569?style=for-the-badge&logo=systemd&logoColor=white" />
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/STATUS-IN%20PROGRESS-orange?style=flat-square" />
-  <img src="https://img.shields.io/badge/ENVIRONMENT-Fedora%2043-294172?style=flat-square&logo=fedora&logoColor=white" />
-  <img src="https://img.shields.io/badge/VIRTUALIZATION-KVM%2FQEMU-38BDF8?style=flat-square" />
+  <img src="https://img.shields.io/badge/STATUS-IN%20PROGRESS-D97706?style=flat-square" />
+  <img src="https://img.shields.io/badge/HOST-FEDORA%2043-294172?style=flat-square&logo=fedora&logoColor=white" />
+  <img src="https://img.shields.io/badge/VIRTUALIZATION-KVM%20%2F%20QEMU-0E7490?style=flat-square" />
 </p>
 
 ---
