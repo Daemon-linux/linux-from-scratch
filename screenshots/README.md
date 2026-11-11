@@ -13,17 +13,5 @@ This directory contains selected screenshots that provide visual evidence of imp
 - Capture only screenshots that add useful technical context.
 - Add a short explanation or caption where the image is not self-explanatory.
 
-~
-~
-~
-~
-~
-~
-~
-~
-~
-~
-~
-~
 Downloads/linux-from-scratch-folder-readmes/screenshots/README.md
 
