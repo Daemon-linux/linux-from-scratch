@@ -13,6 +13,8 @@ This section documents:
 
 ## Evidence Files
 
+Decompress first ===> testing-validation-evidence.tar.gz 
+
 | File | Description |
 |---|---|
 | `01-test-log-inventory.txt` | Inventory of available package test logs |
