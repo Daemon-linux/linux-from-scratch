@@ -64,21 +64,38 @@ The project follows the structure of the official LFS book.
 | Kernel | Linux kernel configuration and compilation |
 | Bootloader | Preparing the bootable system |
 
+
 ## `05` / TECHNOLOGIES & COMPONENTS
 
 <p align="center">
-  <img src="https://skillicons.dev/icons?i=linux,bash,gcc,git&theme=dark" alt="Technologies" />
+  <img src="https://img.shields.io/badge/Linux-Systems-FCC624?style=for-the-badge&logo=linux&logoColor=black" />
+  <img src="https://img.shields.io/badge/GNU-Toolchain-A42E2B?style=for-the-badge&logo=gnu&logoColor=white" />
+  <img src="https://img.shields.io/badge/GCC-Compiler-00599C?style=for-the-badge&logo=c&logoColor=white" />
+  <img src="https://img.shields.io/badge/Bash-Shell-4EAA25?style=for-the-badge&logo=gnubash&logoColor=white" />
+  <img src="https://img.shields.io/badge/systemd-Init_System-000000?style=for-the-badge&logo=systemd&logoColor=white" />
 </p>
 
-- **GNU Toolchain:** GCC, Binutils, GNU Make
-- **C Library:** glibc
-- **Shell:** Bash
-- **Core Utilities:** Coreutils, Findutils, Grep, Sed, Gawk
-- **System Libraries:** Readline, Libcap and other essential libraries
-- **Build Tools:** Make, Bison, M4, Flex
-- **System Initialization:** systemd
-- **Kernel:** Linux
+### Core Components
 
+| Component | Technologies |
+|---|---|
+| GNU Toolchain | GCC, Binutils, GNU Make |
+| C Library | glibc |
+| Shell | Bash |
+| Core Utilities | Coreutils, Findutils, Grep, Sed, Gawk |
+| System Libraries | Readline, Libcap |
+| Build Tools | Make, Bison, M4, Flex |
+| System Initialization | systemd |
+| Kernel | Linux |
+
+### Technical Focus
+
+- Cross-compilation and toolchain construction
+- Compilation from source code
+- Shared libraries and dynamic linking
+- Filesystem hierarchy and system configuration
+- Package testing and troubleshooting
+- Linux kernel and system initialization
 ## `06` / DOCUMENTATION & TROUBLESHOOTING
 
 This repository documents the actual build process, including:
