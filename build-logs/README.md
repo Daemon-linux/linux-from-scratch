@@ -1,35 +1,18 @@
 # Build Logs
 
-This directory stores selected build output and test results from the LFS construction process.
+This directory is reserved for selected, reviewable build logs and test summaries. At present, no standalone raw package build logs are tracked in this directory.
 
-## Organization
+The existing archived test material is stored under [testing and validation evidence](../screenshots/07-testing-and-validation/README.md). Its contents should be inspected before using it to make package-wide claims.
 
-Logs should be grouped by package or component where practical.
-
-Examples:
-
-- GCC
-- glibc
-- Binutils
-- Other essential packages
-
-## What to Record
+## What to include when adding logs
 
 For each relevant build, record:
 
 - Package name and exact version
 - LFS book section
-- Build date
+- Build date and environment
 - Build or test command, when useful
-- Test summary: passed, failed, and skipped
-- Relevant error messages and the related troubleshooting document
+- Original test summary: passed, failed and skipped
+- Relevant error messages and a link to the troubleshooting report
 
-## Guidelines
-
-- Prefer concise, relevant logs over uploading every terminal output.
-- Preserve the original failure details when investigating a problem.
-- Do not commit huge, repetitive, or unrelated output files.
-- Remove passwords, tokens, private paths, and other sensitive information before publishing logs.
-
-Downloads/linux-from-scratch-folder-readmes/build-logs/README.md                                                                1,1            Top
-                                                                                                                                          
+Prefer concise, relevant logs over every terminal output. Preserve failure details. Remove passwords, tokens, private keys and unrelated personal information before publishing.

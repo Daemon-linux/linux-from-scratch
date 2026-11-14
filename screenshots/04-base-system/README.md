@@ -1,33 +1,20 @@
-# Base System
+# Base System Evidence
 
-This directory contains evidence of the base system built according to the **Linux From Scratch 13.1-systemd** book.
+This directory contains selected version captures and system-component evidence for the Linux From Scratch 13.1-systemd build.
 
-## Scope
-
-The base system includes the essential user-space components required for a functional Linux environment, including:
-
-- Core utilities and command-line tools
-- Shell and development utilities
-- Filesystem management utilities
-- System libraries
-- Network and system administration utilities
-
-## Evidence Files
+## Evidence files
 
 | File | Description |
 |---|---|
-| `01-core-utilities-versions.txt` | Versions of core user-space utilities |
-| `02-shell-and-tool-versions.txt` | Shell and development tool versions |
-| `03-filesystem-utilities-versions.txt` | Filesystem management utility versions |
-| `04-system-library-versions.txt` | System library and configuration tool versions |
-| `05-network-and-system-utilities.txt` | Network and system management utility versions |
-| `06-installed-base-system-packages.txt` | Inventory of installed base-system components |
+| `01-core-utilities-versions.txt` | Captured versions of selected core utilities |
+| `02-shell-and-tool-versions.txt` | Captured shell and development tool versions |
+| `03-filesystem-utilities-versions.txt` | Captured filesystem utility versions |
+| `04-system-library-versions.txt` | Captured system library information |
+| `05-network-and-system-utilities.txt` | Captured network and system utility information |
+| `06-installed-base-system-packages.txt` | Corrected explanation of the limits of the earlier presence checklist |
 
-## Build Reference
+## Presence checks versus tests
 
-- **Distribution:** Linux From Scratch
-- **Book Version:** 13.1-systemd
-- **Architecture:** x86_64
-- **Target Triplet:** `x86_64-lfs-linux-gnu`
+The previous checklist used command/file-presence probes. It did not run package test suites, and some probes were not reliable package-identification checks. Its former statement that all packages were “installed and tested” has been removed.
 
-These files provide supporting evidence of the resulting base system. They are not a replacement for the official LFS build instructions or package test logs.
+Run the [component presence checker](../../scripts/collect-evidence/check-base-system.sh) for a fresh report of selected commands and paths. A presence result is not proof of package provenance, package completeness or test-suite success.

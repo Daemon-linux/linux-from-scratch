@@ -1,35 +1,16 @@
-# Documentation
+# Technical Documentation
 
-This directory contains the technical documentation for the Linux From Scratch (LFS) build.
+Project-authored explanations that complement the captured evidence. These documents do not replace the official LFS instructions.
 
-## Scope
+- [Build process](build-process.md) — phases of the LFS build and evidence map.
+- [Boot process](boot-process.md) — firmware, GRUB, Linux kernel and systemd.
+- [ELF and dynamic linking](elf-and-dynamic-linking.md) — executable formats, shared libraries and inspection commands.
+- [Testing and validation](testing-and-validation.md) — interpreting logs and separating presence checks from test results.
 
-Documentation is organized around the actual build process and the corresponding LFS book sections.
+## Documentation rules
 
-Expected topics include:
-
-- Host system preparation and prerequisite checks
-- Disk layout, filesystems, and mount configuration
-- Build environment and environment variables
-- Cross-toolchain and temporary tools
-- Chroot environment and base system construction
-- System configuration, kernel, and bootloader
-- Final validation and boot testing
- 
-## Documentation Guidelines
- 
-- Record the LFS book version and relevant chapter or section.
-- Describe the purpose of each important command or configuration change.
-- Include relevant package versions and prerequisites.
-- Distinguish verified results from assumptions or planned work.
-- Link related troubleshooting notes when a problem required investigation.
- 
-Do not copy substantial portions of the LFS book. Refer to the official book and document the work performed in this repository.
-
-## Status
-
-Documentation is added as each build stage is completed and verified.
-~
-~
-Downloads/linux-from-scratch-folder-readmes/docs/README.md                                                                      1,1            All
-                                                                                                                                          
+- Identify the relevant LFS 13.1-systemd section where applicable.
+- Distinguish captured facts from general technical explanation and unverified assumptions.
+- Explain important commands instead of publishing unexplained command lists.
+- Link evidence and troubleshooting notes where available.
+- Do not reproduce substantial portions of the copyrighted LFS book.

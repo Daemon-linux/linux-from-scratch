@@ -4,16 +4,12 @@ This directory contains evidence of the Linux kernel configuration and bootloade
 
 ## Scope
 
-This section documents the kernel and bootloader components, including:
-
 - Linux kernel image and version information
-- Kernel configuration
-- Installed kernel modules
+- Kernel configuration and installed modules
 - Boot directory contents
-- GRUB version and installation files
-- GRUB boot configuration
+- GRUB version, installation files and configuration
 
-## Evidence Files
+## Evidence files
 
 | File | Description |
 |---|---|
@@ -24,13 +20,6 @@ This section documents the kernel and bootloader components, including:
 | `05-grub-version-and-installation.txt` | GRUB version and installation evidence |
 | `06-grub-configuration.txt` | GRUB bootloader configuration |
 
-## Build Reference
+The [kernel and bootloader collector](../../scripts/collect-evidence/collect-kernel-bootloader-evidence.sh) gathers a fresh snapshot. Review its output before publishing it; configuration and device paths are machine-specific.
 
-- **Distribution:** Linux From Scratch
-- **Book Version:** 13.1-systemd
-- **Architecture:** x86_64
-- **Target Triplet:** `x86_64-lfs-linux-gnu`
-
-These files document the kernel and bootloader setup of the resulting LFS system.
-
-Note: This evidence records installed files and configuration. It does not independently prove that the system successfully booted.
+This evidence records installed files and configuration. Successful boot is documented separately in the [final-system evidence](../08-final-system/README.md).

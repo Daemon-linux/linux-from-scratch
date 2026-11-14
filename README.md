@@ -1,153 +1,87 @@
-# Linux From Scratch
+# Linux From Scratch — 13.1-systemd
 
 <p align="center">
-  <img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=600&size=20&duration=2800&pause=900&color=38BDF8&center=true&vCenter=true&width=750&lines=Building+Linux+from+Source;Understanding+the+Linux+System+Internals;From+Toolchain+to+Bootable+System" alt="Typing SVG" />
+  <img src="https://img.shields.io/badge/PROJECT-LINUX%20FROM%20SCRATCH-38BDF8?style=for-the-badge&logo=linux&logoColor=white" alt="Linux From Scratch project" />
+  <img src="https://img.shields.io/badge/ARCHITECTURE-x86__64-2563EB?style=for-the-badge" alt="x86_64 architecture" />
+  <img src="https://img.shields.io/badge/INIT-SYSTEMD-475569?style=for-the-badge&logo=systemd&logoColor=white" alt="systemd" />
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/PROJECT-LINUX%20FROM%20SCRATCH-38BDF8?style=for-the-badge&logo=linux&logoColor=white" />
-  <img src="https://img.shields.io/badge/ARCHITECTURE-x86__64-2563EB?style=for-the-badge" />
-  <img src="https://img.shields.io/badge/BUILD-SYSTEMD-475569?style=for-the-badge&logo=systemd&logoColor=white" />
+  <img src="https://img.shields.io/badge/STATUS-BOOTED%20%26%20DOCUMENTED-15803D?style=flat-square" alt="Booted and documented" />
+  <img src="https://img.shields.io/badge/HOST-FEDORA%2043-294172?style=flat-square&logo=fedora&logoColor=white" alt="Fedora 43" />
+  <img src="https://img.shields.io/badge/VIRTUALIZATION-KVM%20%2F%20QEMU-0E7490?style=flat-square" alt="KVM and QEMU" />
 </p>
 
-<p align="center">
-  <img src="https://img.shields.io/badge/STATUS-IN%20PROGRESS-D97706?style=flat-square" />
-  <img src="https://img.shields.io/badge/HOST-FEDORA%2043-294172?style=flat-square&logo=fedora&logoColor=white" />
-  <img src="https://img.shields.io/badge/VIRTUALIZATION-KVM%20%2F%20QEMU-0E7490?style=flat-square" />
-</p>
+A hands-on build of a complete Linux system from source, following the **Linux From Scratch 13.1-systemd** book. The project covers the build environment, toolchain, base user space, system configuration, Linux kernel, GRUB and first boot.
 
----
+## Project status
 
-## `01` / PROJECT OVERVIEW
+**System built and booted.** The repository contains evidence of the final system boot, running kernel, systemd state, filesystem layout and GRUB configuration.
 
-**Linux From Scratch (LFS)** is a hands-on project focused on building a complete Linux system directly from source code.
+This status describes the existence of a bootable system; it does **not** mean every package test suite passed. Test results are documented separately and must be interpreted from their original logs.
 
-Instead of installing a prebuilt distribution, this project follows the Linux From Scratch book to construct the system step by step — from the initial toolchain to a functional Linux environment.
-
-The main objective is to understand how Linux distributions are assembled, how their core components interact, and how a minimal Linux system operates internally.
-
-## `02` / PROJECT OBJECTIVES
-
-- Build a Linux system entirely from source.
-- Understand cross-compilation and toolchain construction.
-- Explore the GNU toolchain and core system utilities.
-- Understand the Linux filesystem hierarchy.
-- Study system libraries, linking, and dynamic loading.
-- Configure the kernel and system boot process.
-- Understand system initialization with systemd.
-- Document build procedures, test results, and troubleshooting.
-
-## `03` / BUILD ENVIRONMENT
+## Build environment
 
 | Component | Configuration |
 |---|---|
-| Host OS | Fedora 43 Workstation |
+| Book | Linux From Scratch 13.1-systemd |
+| Host / build VM | Fedora 43 Workstation |
 | Virtualization | KVM / QEMU |
 | Architecture | x86_64 |
-| Target Triplet | `x86_64-lfs-linux-gnu` |
-| Build Method | Cross-compilation and native compilation |
-| Build System | LFS with systemd |
-| Build Directory | `/mnt/lfs` |
-| Build User | `lfs` |
+| LFS target triplet | `x86_64-lfs-linux-gnu` |
+| LFS build root | `/mnt/lfs` |
+| Build user | `lfs` |
+| Filesystem | ext4 |
+| Init system | systemd |
 
-## `04` / BUILD PROCESS
+See [the build reference](references/BUILD-REFERENCE.md) and [build environment evidence](screenshots/01-build-environment/README.md).
 
-The project follows the structure of the official LFS book.
+## Build stages and evidence
 
-| Stage | Description |
+| Stage | Contents |
 |---|---|
-| Preparation | Host environment and build prerequisites |
-| Temporary Toolchain | Cross-compiler and temporary system tools |
-| Chroot Environment | Entering the isolated LFS build environment |
-| Base System | Building essential system packages |
-| System Configuration | Configuring users, filesystems, and system services |
-| Kernel | Linux kernel configuration and compilation |
-| Bootloader | Preparing the bootable system |
+| [01 — Build environment](screenshots/01-build-environment/README.md) | Fedora environment, KVM/QEMU VM and allocated resources |
+| [02 — Storage and filesystem](screenshots/02-storage-and-filesystem/README.md) | Dedicated LFS disk, partition, ext4 and mount point |
+| [03 — Toolchain](screenshots/03-toolchain/README.md) | Captured Binutils/GCC/glibc information and compiler smoke test |
+| [04 — Base system](screenshots/04-base-system/README.md) | Selected component versions and presence-check methodology |
+| [05 — System configuration](screenshots/05-system-configuration/README.md) | Hostname, locale, timezone, mounts, systemd and shell |
+| [06 — Kernel and bootloader](screenshots/06-kernel-and-bootloader/README.md) | Kernel configuration, modules, boot files and GRUB |
+| [07 — Testing and validation](screenshots/07-testing-and-validation/README.md) | Existing test-log inventory and validation limitations |
+| [08 — Final system](screenshots/08-final-system/README.md) | GRUB menu, first boot and final system state |
 
+The `screenshots/` directory retains its historical name, but includes text captures, scripts and archives as well as images.
 
-## `05` / TECHNOLOGIES & COMPONENTS
+## Technical documentation
 
-<p align="center">
-  <img src="https://img.shields.io/badge/Linux-Systems-FCC624?style=for-the-badge&logo=linux&logoColor=black" />
-  <img src="https://img.shields.io/badge/GNU-Toolchain-A42E2B?style=for-the-badge&logo=gnu&logoColor=white" />
-  <img src="https://img.shields.io/badge/GCC-Compiler-00599C?style=for-the-badge&logo=c&logoColor=white" />
-  <img src="https://img.shields.io/badge/Bash-Shell-4EAA25?style=for-the-badge&logo=gnubash&logoColor=white" />
-  <img src="https://img.shields.io/badge/systemd-Init_System-000000?style=for-the-badge&logo=systemd&logoColor=white" />
-</p>
+- [Build process](docs/build-process.md)
+- [Boot process: firmware, GRUB, kernel and systemd](docs/boot-process.md)
+- [ELF binaries and dynamic linking](docs/elf-and-dynamic-linking.md)
+- [Testing and validation methodology](docs/testing-and-validation.md)
+- [Troubleshooting](troubleshooting/README.md)
+- [Project sources](references/sources.md)
 
-### Core Components
-
-| Component | Technologies |
-|---|---|
-| GNU Toolchain | GCC, Binutils, GNU Make |
-| C Library | glibc |
-| Shell | Bash |
-| Core Utilities | Coreutils, Findutils, Grep, Sed, Gawk |
-| System Libraries | Readline, Libcap |
-| Build Tools | Make, Bison, M4, Flex |
-| System Initialization | systemd |
-| Kernel | Linux |
-
-### Technical Focus
+## Technical focus
 
 - Cross-compilation and toolchain construction
-- Compilation from source code
-- Shared libraries and dynamic linking
+- GNU Binutils, GCC and glibc
+- ELF executables, shared libraries and dynamic linking
 - Filesystem hierarchy and system configuration
-- Package testing and troubleshooting
-- Linux kernel and system initialization
-## `06` / DOCUMENTATION & TROUBLESHOOTING
+- Linux kernel configuration and modules
+- GRUB bootloader and system initialization with systemd
+- Test-log interpretation and troubleshooting
 
-This repository documents the actual build process, including:
+## Evidence policy
 
-- Build commands and configuration details.
-- Package versions and dependencies.
-- Test-suite results and failures.
-- Compilation and linking issues.
-- Root-cause analysis and applied fixes.
-- Important configuration files and system changes.
+- Captured output records what a command reported at collection time.
+- A command-presence check is not proof that a package test suite passed.
+- A compiler's native target is not automatically the LFS target triplet.
+- Test failures, skips and incomplete records must not be relabeled as successful results.
+- The LFS book itself is not included; use the official [LFS 13.1-systemd book](https://www.linuxfromscratch.org/lfs/view/13.1-systemd/).
 
-The goal is not only to record successful builds, but also to understand why failures happen and how they are resolved.
+## License
 
-## `07` / CURRENT PROGRESS
-
-<badge color="warning">In Progress</badge>
-
-The base system construction is underway.
-
-Current work includes building and validating essential system components, running package test suites, and resolving build-related issues.
-
-Progress is documented incrementally as the project develops.
-
-## `08` / ENGINEERING APPROACH
-
-```text
-Source Code
-     |
-     v
-Build Toolchain
-     |
-     v
-Compile Packages
-     |
-     v
-Test & Validate
-     |
-     v
-Configure System
-     |
-     v
-Bootable Linux
-```
-
-Every component is built and examined to understand its role in the operating system.
-
-**Build · Inspect · Test · Understand**
+Original repository materials are licensed under [GPL-3.0](LICENSE). The LFS book and third-party software remain subject to their own copyright and license terms; see [the build reference](references/BUILD-REFERENCE.md).
 
 ---
 
-<p align="center">
-  <strong>Building Linux to understand Linux.</strong>
-  <br />
-  <sub>Daemon-linux | Linux From Scratch Project</sub>
-</p>
+<p align="center"><strong>Build · Inspect · Test · Understand</strong></p>
