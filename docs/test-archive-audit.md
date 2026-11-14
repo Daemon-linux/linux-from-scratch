@@ -23,10 +23,10 @@ The following recorded failures match the book's package-specific known-failure 
 
 | Package | Recorded failure | Book comparison | Classification |
 |---|---|---|---|
-| ACL 2.4.0 | `test/cp` | Section 8.27 says `test/cp.run` is known to fail because Coreutils has not yet been built with ACL support | **Confirmed known failure** |
+| ACL 2.4.0 | `test/cp.run` (the archived excerpt shortens this to `test/cp`) | Section 8.27 explicitly says this test is known to fail because Coreutils is not built with ACL support yet; the official 13.1 reference log records the same FAIL | **Confirmed known failure** |
 | Findutils 4.11.0 | `test-regex-el` | Section 8.63 explicitly says this test is known to fail | **Confirmed known failure** |
 | Groff 1.24.1 | `src/preproc/eqn/tests/neqn-smoke-test.sh` | Section 8.64 explicitly says `neqn-smoke-test.sh` is known to fail | **Confirmed known failure** |
-| Binutils 2.47 | `tmpdir/gp-gmon` | Section 8.22 says one test related to gprofng is known to fail; this is the sole FAIL entry in the archived gprofng summary | **Matches the documented gprofng failure** |
+| Binutils 2.47 | `tmpdir/gp-gmon` | Section 8.22 says one test related to gprofng is known to fail; the official 13.1 reference log records this exact FAIL as the gprofng test failure | **Confirmed match to the documented gprofng failure** |
 | glibc 2.44 | `io/tst-lchmod` | Section 8.5 explicitly says this test is known to fail in the LFS chroot environment | **Confirmed known failure** |
 
 These outcomes must not be reported as demonstrated defects in the LFS build. For ACL, the book gives the specific reason: Coreutils is not built with ACL support yet at the point ACL is tested.
@@ -54,13 +54,13 @@ The following recorded test names match the known-failure list in Section 8.32:
 
 The book additionally says `gcc.target/i386/shift-gf2p8affine-2.c` is known to fail **if the processor does not support AVX512**. The archive records this failure, but the captured evidence does not establish whether the CPU supports AVX512. Its classification is therefore **conditionally documented; CPU capability not verified**.
 
-Three other test-name groups appear in the captured C summary but are not named in the book's known-failure list:
+The following three C test-name groups are not individually enumerated in the book's known-failure list:
 
 - `gcc.target/i386/memset-pr70308-1a.c` and `memset-pr70308-1b.c`
 - `gcc.target/i386/pr125355-2.c` and `pr125355.c`
 - `gcc.target/i386/xchg-4.c`
 
-These are **not confirmed by the book's explicit list**. Section 8.32 says a few unexpected failures can occur and instructs builders to compare results with the official LFS 13.1 build logs. These three groups must remain **unverified against the official build logs**, not be silently labelled expected or treated as proof of a defective build.
+However, all three groups appear as FAIL entries in the official LFS 13.1 GCC reference log for GCC 16.2.0 on the i7-14700K build host. They are therefore **corroborated by the official reference build log**, although they are not individually named in the book's known-failure list. This is the comparison Section 8.32 directs builders to perform. The reference host is not the user's host, so this comparison does not prove identical hardware-specific causes.
 
 The two XPASS entries are separate DejaGNU outcomes for the nested plugin crash tests. XPASS means an outcome expected to fail instead passed; it must not be added to the FAIL count or described as an ordinary PASS. The book's known-failure note does not itself classify these two XPASS entries.
 
@@ -78,9 +78,11 @@ The multiple FAIL entries for a single source file arise from separate test vari
 
 ### GCC conclusion
 
-The recorded GCC C++ failures match the book's known-failure groups. Most recorded C failures also match. However, the three C test-name groups above are not in the book's explicit list, and the AVX512-dependent failure needs the CPU capability checked. The book's general note that some unexpected failures may occur is not enough to certify those exact tests without the official build-log comparison.
+The official LFS 13.1 reference log records the same aggregate GCC outcomes as this archive: 40 unexpected failures in the C suite, 33 in the C++ suite, and two unexpected successes in the C suite. Its named C and C++ FAIL entries match the names summarized from the user's archive, including the three C groups not individually listed in the book. This is strong corroboration that the observed result pattern is also present in the official reference build; it is not a guarantee that all machines will produce identical outcomes.
 
-The book also says the listed GCC known failures are non-critical; most are due to test authors not anticipating `--enable-default-ssp` or `--enable-default-pie`. This explanation applies to the book's listed tests, not automatically to every unlisted failure.
+The book says the failures in its explicit known-failure list are non-critical; most are due to test authors not anticipating `--enable-default-ssp` or `--enable-default-pie`. For the additional C groups, the evidence supports the narrower conclusion that the same failures occur in the official 13.1 reference log. Do not extend the book's specific explanation to tests it does not name.
+
+The two XPASS outcomes remain separate from the 40 FAIL count. The official reference log also records the two XPASS outcomes for the nested plugin crash tests. XPASS is not an ordinary PASS and should be reported independently.
 
 ## Other captured test-suite summaries
 
@@ -105,14 +107,21 @@ The archived summary files are unusually large (about 46 MB each when uncompress
 
 The collector has been tightened so future summaries focus on test counters and PASS / FAIL / SKIP / XFAIL / XPASS result lines. Existing archive contents are preserved as historical evidence and are not rewritten.
 
-## What this archive does not establish
+## Official reference-log comparison and remaining limits
 
-- It does not contain every original full log needed to diagnose every test.
-- It does not establish the CPU's AVX512 capability at test time.
-- It does not establish whether the three unlisted GCC C test groups match the official LFS 13.1 build logs.
-- It does not prove that every LFS package test suite was run.
-- It does not support a claim that all tests passed.
-- A non-zero FAIL counter alone does not establish a defective LFS build.
+The official LFS 13.1 build-log index publishes a reference build for an Intel Core i7-14700K host. Its package test logs corroborate these exact outcomes:
+
+- ACL 2.4.0: `FAIL: test/cp.run` (with two separate XFAIL results).
+- Binutils 2.47: `FAIL: tmpdir/gp-gmon`.
+- GCC 16.2.0: the same 40 C FAIL and 33 C++ FAIL aggregate counts, the same named test groups, and two separate XPASS outcomes.
+- Findutils 4.11.0: `FAIL: test-regex-el`.
+- Groff 1.24.1: `FAIL: src/preproc/eqn/tests/neqn-smoke-test.sh`.
+
+The official Glibc test log is too large for the web retrieval interface to inspect in this review; the specific `io/tst-lchmod` result is nevertheless explicitly documented by Section 8.5 of the 13.1-systemd book as a known failure in the LFS chroot.
+
+These comparisons establish that the same named failures occur in the published reference build. They do not prove identical causes on different host hardware or establish the AVX512 capability of the user's build CPU. The GCC `shift-gf2p8affine-2.c` failure remains conditional in the book on lack of AVX512 support; the archive does not contain a CPU feature capture sufficient to resolve that condition.
+
+The archive itself contains inventories and grep-based excerpts, not every original full package log needed for root-cause diagnosis. It also does not prove that every LFS package test suite was run or support a claim that all tests passed. A non-zero FAIL counter alone does not establish a defective LFS build.
 
 ## References
 
@@ -123,6 +132,11 @@ The collector has been tightened so future summaries focus on test counters and 
 - [LFS 13.1-systemd — Glibc 2.44](https://www.linuxfromscratch.org/lfs/view/stable-systemd/chapter08/glibc.html)
 - [LFS 13.1-systemd — Findutils 4.11.0](https://www.linuxfromscratch.org/lfs/view/stable-systemd/chapter08/findutils.html)
 - [LFS 13.1-systemd — Groff 1.24.1](https://www.linuxfromscratch.org/lfs/view/stable-systemd/chapter08/groff.html)
-- [Official LFS 13.1 build logs](https://www.linuxfromscratch.org/lfs/build-logs/13.1/)
+- [Official LFS 13.1 build-log index](https://www.linuxfromscratch.org/lfs/build-logs/13.1/)
+- [Official Binutils 2.47 test log](https://www.linuxfromscratch.org/lfs/build-logs/13.1/i7-14700K/test-logs/820-binutils-2.47)
+- [Official ACL 2.4.0 test log](https://www.linuxfromscratch.org/lfs/build-logs/13.1/i7-14700K/test-logs/825-acl-2.4.0)
+- [Official GCC 16.2.0 test log](https://www.linuxfromscratch.org/lfs/build-logs/13.1/i7-14700K/test-logs/830-gcc-16.2.0)
+- [Official Findutils 4.11.0 test log](https://www.linuxfromscratch.org/lfs/build-logs/13.1/i7-14700K/test-logs/861-findutils-4.11.0)
+- [Official Groff 1.24.1 test log](https://www.linuxfromscratch.org/lfs/build-logs/13.1/i7-14700K/test-logs/862-groff-1.24.1)
 
-Section 4.6 explicitly directs builders to the official 13.1 build logs to determine whether failures not listed as known are expected. Until those exact entries are compared, keep them unverified.
+Section 4.6 directs builders to the official 13.1 build logs to verify failures not explicitly listed as known. That comparison has now been performed for the package logs above; the Glibc reference log remains unreadable through the retrieval interface, while its named failure is directly documented in Section 8.5.
