@@ -8,12 +8,12 @@ This directory documents the final Linux From Scratch 13.1-systemd system and it
 |---|---|
 | `01-grub-boot-menu.png` | GRUB menu showing the LFS boot entry |
 | `02-first-look-after-boot.png` | First-look image captured after boot |
-| `01-final-system-information.txt` | Operating system, architecture and CPU information |
-| `02-running-kernel-and-uptime.txt` | Running kernel and uptime |
-| `03-systemd-status.txt` | systemd version, default target and service state |
-| `04-filesystem-and-storage.txt` | Block devices, filesystems and mount information |
-| `05-final-directory-structure.txt` | Top-level filesystem structure |
-| `06-project-completion.txt` | Build reference and evidence collection summary |
+| `03-final-system-information.txt` | Operating system, architecture and CPU information |
+| `04-running-kernel-and-uptime.txt` | Running kernel and uptime |
+| `05-systemd-status.txt` | systemd version, default target and service state |
+| `06-filesystem-and-storage.txt` | Block devices, filesystems and mount information |
+| `07-final-directory-structure.txt` | Top-level filesystem structure |
+| `08-project-completion.txt` | Build reference and evidence collection summary |
 
 The [final-system collector](../../scripts/collect-evidence/collect-final-system-evidence.sh) can collect a fresh runtime snapshot. Review its output for host-specific information before publishing.
 
