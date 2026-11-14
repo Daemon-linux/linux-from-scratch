@@ -1,1 +1,11 @@
+Captured native compiler / assembler target
+============================================
+
 x86_64-pc-linux-gnu
+
+Interpretation:
+The captured GCC configuration and GNU assembler output report this native
+target. The LFS build target is separately documented as
+x86_64-lfs-linux-gnu. This file does not prove that the captured compiler is
+the LFS cross-compiler or the final compiler installed inside the LFS system.
+Do not use this value as a replacement for the LFS target triplet.
