@@ -6,25 +6,25 @@ The purpose of these screenshots is to provide a clear overview of the infrastru
 
 ## Screenshots
 
-### 01. Host System — `host-system.png`
+### 01. Host System — `01-host-system.png`
 
 Shows the host operating system and its system information.
 
 This screenshot documents the physical host environment running the virtualization platform.
 
-### 02. Virtualization Platform — `virtualization-platform.png`
+### 02. Virtualization Platform — `02-virtualization-platform.png`
 
 Shows the virtualization platform used for this project.
 
 The LFS build environment runs inside a virtual machine managed through KVM/QEMU and libvirt.
 
-### 03. Virtual Machine Information — `virtual-machine-info.png`
+### 03. Virtual Machine Information — `03-virtual-machine-info.png`
 
 Shows the virtual machine configuration and general information, including its name, state, operating system type, and virtualization details where available.
 
 This helps identify the specific virtual machine used for the LFS build.
 
-### 04. Resource Allocation — `resource-allocation.png`
+### 04. Resource Allocation — `04-resource-allocation.png`
 
 Shows the hardware resources assigned to the virtual machine, including:
 

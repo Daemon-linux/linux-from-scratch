@@ -6,8 +6,8 @@ This directory documents the final Linux From Scratch 13.1-systemd system and it
 
 | File | Description |
 |---|---|
-| `00-grub-boot-menu.png` | GRUB menu showing the LFS boot entry |
-| `00-first-look-after-boot.png` | First-look image captured after boot |
+| `01-grub-boot-menu.png` | GRUB menu showing the LFS boot entry |
+| `02-first-look-after-boot.png` | First-look image captured after boot |
 | `01-final-system-information.txt` | Operating system, architecture and CPU information |
 | `02-running-kernel-and-uptime.txt` | Running kernel and uptime |
 | `03-systemd-status.txt` | systemd version, default target and service state |
