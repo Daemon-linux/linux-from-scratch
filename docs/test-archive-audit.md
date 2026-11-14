@@ -15,7 +15,7 @@
 | `03-installed-system-checks.txt` | Captured versions and selected system checks |
 | `04-validation-report.txt` | Validation metadata and a large captured result-summary section |
 
-The inventory contains 59 files named `test-suite.log`; the remaining 112 entries are other summary formats, including DejaGNU `.sum` files and one GCC `test_summary`. Some DejaGNU paths are framework self-test fixtures rather than independent LFS package test runs. Therefore, 171 is an inventory-entry count, not a count of packages tested.
+The inventory contains 59 files named `test-suite.log`; the remaining 112 entries are other summary formats, including DejaGNU `.sum` files and one GCC `test_summary`. Some DejaGNU paths are framework self-test fixtures rather than independent LFS package test runs. In particular, the archived paths under `/sources/dejagnu-1.6.3/build/testsuite/report-card.all/` are DejaGNU's own report-card test fixtures (including deliberately named `one-fail`, `basic-a`, and `basic-b` cases); their synthetic FAIL lines are not failures from an LFS package test suite and are excluded from the package-failure assessment. Therefore, 171 is an inventory-entry count, not a count of packages tested.
 
 ## Failures explicitly documented by LFS 13.1-systemd
 
