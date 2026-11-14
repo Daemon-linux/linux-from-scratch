@@ -1,0 +1,45 @@
+--- Block Devices ---
+NAME    SIZE TYPE FSTYPE LABEL  MOUNTPOINTS
+sr0    1024M rom                
+vda      80G disk               
+├─vda1  600M part vfat          
+├─vda2    2G part ext4          
+└─vda3 77.4G part btrfs  fedora 
+vdb      80G disk               
+└─vdb1   80G part ext4   LFS    /
+
+--- Filesystem Usage ---
+Filesystem     Type      Size  Used Avail Use% Mounted on
+/dev/root      ext4       79G   23G   52G  31% /
+devtmpfs       devtmpfs  5.8G     0  5.8G   0% /dev
+tmpfs          tmpfs     5.9G     0  5.9G   0% /dev/shm
+tmpfs          tmpfs     2.4G  604K  2.4G   1% /run
+efivarfs       efivarfs  256K   84K  168K  34% /sys/firmware/efi/efivars
+tmpfs          tmpfs     5.9G     0  5.9G   0% /tmp
+none           tmpfs     1.0M     0  1.0M   0% /run/credentials/systemd-journald.service
+none           tmpfs     1.0M     0  1.0M   0% /run/credentials/systemd-resolved.service
+none           tmpfs     1.0M     0  1.0M   0% /run/credentials/systemd-networkd.service
+none           tmpfs     1.0M     0  1.0M   0% /run/credentials/getty@tty1.service
+
+--- Mounted Filesystems ---
+TARGET                                        SOURCE      FSTYPE      OPTIONS
+/                                             /dev/vdb1   ext4        rw,relatime
+├─/dev                                        devtmpfs    devtmpfs    rw,relatime,size=6066712k,nr_inodes=1516678,mode=755
+│ ├─/dev/shm                                  tmpfs       tmpfs       rw,nosuid,nodev
+│ ├─/dev/pts                                  devpts      devpts      rw,nosuid,noexec,relatime,gid=5,mode=600,ptmxmode=000
+│ ├─/dev/mqueue                               mqueue      mqueue      rw,nosuid,nodev,noexec,relatime
+│ └─/dev/hugepages                            hugetlbfs   hugetlbfs   rw,nosuid,nodev,relatime,pagesize=2M
+├─/proc                                       proc        proc        rw,nosuid,nodev,noexec,relatime
+│ └─/proc/sys/fs/binfmt_misc                  systemd-1   autofs      rw,relatime,fd=40,pgrp=1,timeout=0,minproto=5,maxproto=5,direct
+│   └─/proc/sys/fs/binfmt_misc                binfmt_misc binfmt_misc rw,nosuid,nodev,noexec,relatime
+├─/sys                                        sysfs       sysfs       rw,nosuid,nodev,noexec,relatime
+│ ├─/sys/fs/cgroup                            cgroup2     cgroup2     rw,nosuid,nodev,noexec,relatime,nsdelegate,memory_recursiveprot,memory_hugetlb_accounting
+│ ├─/sys/firmware/efi/efivars                 efivarfs    efivarfs    rw,nosuid,nodev,noexec,relatime
+│ ├─/sys/kernel/tracing                       tracefs     tracefs     rw,nosuid,nodev,noexec,relatime
+│ └─/sys/kernel/debug                         debugfs     debugfs     rw,nosuid,nodev,noexec,relatime
+├─/run                                        tmpfs       tmpfs       rw,nosuid,nodev,size=2437108k,nr_inodes=819200,mode=755
+│ ├─/run/credentials/systemd-journald.service none        tmpfs       ro,nosuid,nodev,noexec,relatime,nosymfollow,size=1024k,nr_inodes=1024,mode=700,noswap
+│ ├─/run/credentials/systemd-resolved.service none        tmpfs       ro,nosuid,nodev,noexec,relatime,nosymfollow,size=1024k,nr_inodes=1024,mode=700,noswap
+│ ├─/run/credentials/systemd-networkd.service none        tmpfs       ro,nosuid,nodev,noexec,relatime,nosymfollow,size=1024k,nr_inodes=1024,mode=700,noswap
+│ └─/run/credentials/getty@tty1.service       none        tmpfs       ro,nosuid,nodev,noexec,relatime,nosymfollow,size=1024k,nr_inodes=1024,mode=700,noswap
+└─/tmp                                        tmpfs       tmpfs       rw,nosuid,nodev,nr_inodes=1048576
