@@ -2,13 +2,8 @@ name: Validate shell scripts
 
 on:
   push:
-    paths:
-      - "scripts/**/*.sh"
-      - ".github/workflows/shell-syntax.yml"
   pull_request:
-    paths:
-      - "scripts/**/*.sh"
-      - ".github/workflows/shell-syntax.yml"
+  workflow_dispatch:
 
 permissions:
   contents: read
@@ -26,6 +21,6 @@ jobs:
         run: |
           set -Eeuo pipefail
           while IFS= read -r -d '' script; do
-            printf 'Checking %s\n' "$script"
+            printf 'Checking %s\\n' "$script"
             bash -n "$script"
           done < <(find scripts -type f -name '*.sh' -print0)
