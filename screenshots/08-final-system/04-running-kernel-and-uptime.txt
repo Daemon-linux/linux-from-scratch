@@ -1,0 +1,11 @@
+--- Running Kernel ---
+Linux lfs 7.1.8 #1 SMP PREEMPT_DYNAMIC Wed Nov  4 17:56:56 +0330 2026 x86_64 GNU/Linux
+
+--- Kernel Release ---
+7.1.8
+
+--- System Uptime ---
+ 02:08:38 up 0 min,  1 user,  load average: 0.07, 0.02, 0.00
+
+--- Boot Time ---
+         system boot  2026-11-12 02:08
