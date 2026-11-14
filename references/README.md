@@ -2,7 +2,7 @@
 
 This directory records the official documentation and external technical references used during the project.
 
-## Reference Policy
+## Reference policy
 
 Prefer primary sources, including:
 
@@ -17,19 +17,3 @@ For each reference, record its title, publisher or project, URL, version or acce
 Do not copy copyrighted documentation into this repository. Summarize relevant findings in your own words and link to the original source.
 
 See [`sources.md`](sources.md) for the project reference list.
-~
-~
-~
-~
-~
-~
-~
-~
-~
-~
-~
-~
-~
-~
-Downloads/linux-from-scratch-folder-readmes/references/README.md                                                                1,1            All
-
