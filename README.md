@@ -80,7 +80,7 @@ The `screenshots/` directory retains its historical name, but includes text capt
 
 ## License
 
-Original repository materials are licensed under [GPL-3.0](LICENSE). The LFS book and third-party software remain subject to their own copyright and license terms; see [the build reference](references/BUILD-REFERENCE.md).
+Original repository materials are licensed under [GPL-3.0-only](LICENSE). Project copyright and third-party licensing notes are recorded in [NOTICE](NOTICE). The LFS book and upstream software remain subject to their own copyright and license terms; see [the build reference](references/BUILD-REFERENCE.md).
 
 ---
 
