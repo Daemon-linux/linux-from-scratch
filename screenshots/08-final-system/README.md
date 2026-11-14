@@ -17,6 +17,8 @@ This section provides an overview of the completed system, including:
 
 | File | Description |
 |---|---|
+| `000-grub-boot-menu.png` | GRUB bootloader menu showing the Linux From Scratch boot entry |
+| `00-frist-look-after-boot.png` | LFS boot process and successful startup |
 | `01-final-system-information.txt` | Operating system and hardware information |
 | `02-running-kernel-and-uptime.txt` | Running kernel and system uptime |
 | `03-systemd-status.txt` | Systemd version, default target and service status |
