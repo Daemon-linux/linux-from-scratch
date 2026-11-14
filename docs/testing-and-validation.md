@@ -19,6 +19,12 @@ Build completion, command availability, a successful smoke test and a passing pa
 
 Never turn a non-zero failure count into “all tests passed”. Preserve the original log, package version and relevant test names.
 
-The [testing evidence directory](../screenshots/07-testing-and-validation/README.md) contains an archive and a collector. The collector inventories existing logs; it does not rerun tests or certify success. The archive contents must be inspected before making package-wide claims.
+## Archived test evidence
+
+The [testing evidence directory](../screenshots/07-testing-and-validation/README.md) contains the collected archive and its inspection notes. The archive inventory lists 171 paths, including 59 `test-suite.log` files and other DejaGNU summary files. This is an inventory of captured files, not proof that 171 packages were tested.
+
+The [test archive audit](test-archive-audit.md) records the failures visible in the archived summaries. In particular, the captured evidence includes non-zero failures for ACL, Findutils, Groff, GCC, Binutils and glibc. The archive does not contain the original full logs needed to establish root causes, and no root cause is inferred from a failed test name alone.
+
+The collector inventories existing logs; it does not rerun tests or certify success. Its summary filter is deliberately limited to test counters and test-result lines so generic configure output is not mistaken for test status.
 
 The [compiler smoke-test record](../screenshots/03-toolchain/06-toolchain-test-results.txt) is a smoke test only, not a complete toolchain test suite.
