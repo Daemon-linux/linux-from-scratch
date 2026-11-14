@@ -7,6 +7,7 @@ set -Eeuo pipefail
 
 OUTPUT_DIR="${1:-/root/testing-validation-evidence}"
 mkdir -p "$OUTPUT_DIR"
+OUTPUT_DIR="$(cd "$OUTPUT_DIR" && pwd -P)"
 
 search_paths=()
 for directory in /sources /root; do
@@ -14,6 +15,19 @@ for directory in /sources /root; do
         search_paths+=("$directory")
     fi
 done
+
+find_test_logs() {
+    if (( ${#search_paths[@]} == 0 )); then
+        return 0
+    fi
+
+    find "${search_paths[@]}" \
+        -type d -path "$OUTPUT_DIR" -prune -o \
+        -type f \
+        \( -name 'test-suite.log' -o -name 'test_summary' \
+        -o -name 'test-summary.log' -o -name '*.sum' \) \
+        -print 2>/dev/null | sort
+}
 
 inventory="$OUTPUT_DIR/01-test-log-inventory.txt"
 summary="$OUTPUT_DIR/02-test-result-summary.txt"
@@ -23,10 +37,7 @@ summary="$OUTPUT_DIR/02-test-result-summary.txt"
     printf '%s\n' "======================"
     printf '\n'
     if (( ${#search_paths[@]} > 0 )); then
-        find "${search_paths[@]}" -type f \
-            \( -name 'test-suite.log' -o -name 'test_summary' \
-            -o -name 'test-summary.log' -o -name '*.sum' \) \
-            -print 2>/dev/null | sort
+        find_test_logs
     else
         printf '%s\n' "No search directories found."
     fi
@@ -42,8 +53,8 @@ summary="$OUTPUT_DIR/02-test-result-summary.txt"
         printf '\nFile: %s\n' "$logfile"
         printf '%s\n' "----------------------------------------"
         grep -n -i -E \
-            '(^|[[:space:]#])(TOTAL|PASS|FAIL|SKIP|XFAIL|XPASS):|tests passed|tests failed|test failures|test summary|result:|status:' \
-            "$logfile" || printf '%s\n' "No recognized summary lines found."
+            '^[[:space:]]*#?[[:space:]]*(TOTAL|PASS|FAIL|SKIP|XFAIL|XPASS):|^[[:space:]]*(PASS|FAIL|SKIP|XFAIL|XPASS):|tests passed|tests failed|test failures' \
+            "$logfile" || printf '%s\n' "No recognized test-result lines found."
     done < "$inventory"
 } > "$summary"
 
@@ -62,10 +73,7 @@ summary="$OUTPUT_DIR/02-test-result-summary.txt"
     fi
     printf '\nTest log count: '
     if (( ${#search_paths[@]} > 0 )); then
-        find "${search_paths[@]}" -type f \
-            \( -name 'test-suite.log' -o -name 'test_summary' \
-            -o -name 'test-summary.log' -o -name '*.sum' \) \
-            2>/dev/null | wc -l
+        find_test_logs | wc -l
     else
         printf '0\n'
     fi

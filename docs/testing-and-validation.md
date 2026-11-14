@@ -17,8 +17,19 @@ Build completion, command availability, a successful smoke test and a passing pa
 - `SKIP` — tests not run.
 - `XFAIL` / `XPASS` — expected-failure outcomes; interpret using that package's test framework.
 
-Never turn a non-zero failure count into “all tests passed”. Preserve the original log, package version and relevant test names.
+A non-zero `FAIL` counter is a recorded test outcome, not automatically proof of a defective build. LFS 13.1-systemd explicitly documents several known, non-critical test failures. For failures not named in the book, Section 4.6 directs builders to compare with the official LFS 13.1 build logs.
 
-The [testing evidence directory](../screenshots/07-testing-and-validation/README.md) contains an archive and a collector. The collector inventories existing logs; it does not rerun tests or certify success. The archive contents must be inspected before making package-wide claims.
+## Archived test evidence
+
+The [testing evidence directory](../screenshots/07-testing-and-validation/README.md) contains the collected archive and its inspection notes. The archive inventory lists 171 paths, including 59 `test-suite.log` files and other DejaGNU summary files. This is an inventory of captured files, not proof that 171 packages were tested.
+
+The [test archive audit](test-archive-audit.md) compares the captured test names with the book and official LFS 13.1 reference logs. ACL (`test/cp.run`), Findutils (`test-regex-el`), Groff (`neqn-smoke-test.sh`), Binutils (`tmpdir/gp-gmon`), and glibc (`io/tst-lchmod`) are documented known failures in the book. The official reference logs also corroborate the same GCC 16.2.0 result counts (40 C FAIL, 33 C++ FAIL, and two C XPASS) and the named C/C++ failure groups, including the additional C groups not individually listed in the book. The AVX512-dependent condition for `shift-gf2p8affine-2.c` remains unverified for the user's CPU.
+
+The collector inventories existing logs; it does not rerun tests or certify success. Its summary filter is deliberately limited to test counters and test-result lines so generic configure output is not mistaken for test status.
 
 The [compiler smoke-test record](../screenshots/03-toolchain/06-toolchain-test-results.txt) is a smoke test only, not a complete toolchain test suite.
+
+## References
+
+- [LFS 13.1-systemd — About the Test Suites](https://www.linuxfromscratch.org/lfs/view/stable-systemd/chapter04/abouttestsuites.html)
+- [Official LFS 13.1 build logs](https://www.linuxfromscratch.org/lfs/build-logs/13.1/)

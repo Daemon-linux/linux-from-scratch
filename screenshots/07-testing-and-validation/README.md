@@ -6,13 +6,13 @@ This directory contains the archived test evidence collected during the Linux Fr
 
 | File | Description |
 |---|---|
-| `testing-validation-evidence.tar.gz` | Archive of collected test and validation material |
+| `testing-validation-evidence.tar.gz` | Archive containing an inventory, grep-based test-result excerpts, installed-system checks and a validation report |
 
-The [test-log inventory collector](../../scripts/collect-evidence/collect-testing-validation-evidence.sh) searches existing locations for known test-log formats. It does not rerun tests.
+The archive contains summaries and inventory data, not the original full package logs. Its contents have been reviewed; see the [test archive audit](../../docs/test-archive-audit.md) for the recorded outcomes and limitations.
 
 ## Inspect the archive
 
-Before relying on the archive for a package-wide summary, inspect its file list:
+List its members:
 
 ```bash
 tar -tzf testing-validation-evidence.tar.gz
@@ -25,6 +25,8 @@ mkdir -p test-evidence-review
 tar -xzf testing-validation-evidence.tar.gz -C test-evidence-review
 ```
 
-The archive is retained as collected evidence, but its contents have not been individually audited during this repository cleanup. Do not infer that every test passed from the archive's existence.
+The inventory contains 171 paths: 59 `test-suite.log` files and 112 other summary-format files. Some DejaGNU entries are framework self-test fixtures, so this count must not be described as 171 packages tested.
 
-Review each package's original log and preserve PASS, FAIL, SKIP, XFAIL and XPASS counts. See [the testing methodology](../../docs/testing-and-validation.md).
+The captured summaries include non-zero failures. Do not describe the package test results as universally passing. The archive does not include the full original logs needed to diagnose root causes or verify whether failed tests were rerun.
+
+The [test-log inventory collector](../../scripts/collect-evidence/collect-testing-validation-evidence.sh) searches existing locations for known test-log formats. It does not rerun tests. See the [testing methodology](../../docs/testing-and-validation.md).
