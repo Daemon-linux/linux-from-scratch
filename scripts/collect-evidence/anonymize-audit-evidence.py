@@ -16,7 +16,12 @@ UUID_FIELD_RE = re.compile(
 
 
 def anonymize(text: str) -> str:
-    text = MAC_RE.sub("<MAC_ADDRESS>", text)
+    text = MAC_RE.sub(
+        lambda match: match.group(0)
+        if match.group(0) == "00:00:00:00:00:00"
+        else "<MAC_ADDRESS>",
+        text,
+    )
     text = IPV6_LL_RE.sub(
         lambda match: "fe80::[ANONYMIZED_INTERFACE_ID]" + (match.group("prefix") or ""),
         text,
