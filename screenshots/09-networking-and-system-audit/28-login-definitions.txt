@@ -185,7 +185,7 @@ TTYPERM		0600
 #	ULIMIT		Default "ulimit" value.
 #
 # The ERASECHAR and KILLCHAR are used only on System V machines.
-# The ULIMIT is only used if the system supports it.
+# The ULIMIT is used only if the system supports it.
 # (now it works with setrlimit too; ulimit is in 512-byte units)
 #
 # Prefix these values with "0" to get octal, "0x" to get hexadecimal.
