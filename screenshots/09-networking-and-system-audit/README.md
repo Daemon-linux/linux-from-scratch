@@ -44,7 +44,7 @@ This directory contains 30 individual text captures from the Phase 2 and Phase 3
 
 The published captures retain technical lines, command output, errors, versions, configuration values, and service names. Identifying values are replaced consistently:
 
-- MAC addresses: `<MAC_ADDRESS>`
+- Hardware MAC addresses: `<MAC_ADDRESS>` (the standard all-zero loopback value is retained)
 - MAC-derived IPv6 link-local interface identifier: `fe80::[ANONYMIZED_INTERFACE_ID]/64`
 - Machine ID: `<MACHINE_ID>`
 - Boot ID: `<BOOT_ID>`
