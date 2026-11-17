@@ -212,6 +212,6 @@ The evidence supports specific statements about the captured interfaces, resolve
 
 ## 15. Evidence and reproducibility
 
-The accompanying `screenshots/09-networking-and-system-audit/` directory contains the 30 individual Phase 2 and Phase 3 text captures. Identifying MAC/UUID values and the MAC-derived IPv6 link-local interface identifier are replaced with explicit placeholders; technical configuration values and command output are retained.
+The accompanying [evidence directory](../screenshots/09-networking-and-system-audit/README.md) contains the 30 individual Phase 2 and Phase 3 text captures. Identifying MAC/UUID values and the MAC-derived IPv6 link-local interface identifier are replaced with explicit placeholders; technical configuration values and command output are retained.
 
-The read-only collector is available at `scripts/collect-evidence/collect-network-security-evidence.sh`. It writes fresh raw output to a separate directory. Review and anonymize that output before publishing; do not overwrite the existing evidence.
+The [read-only collector](../scripts/collect-evidence/collect-network-security-evidence.sh) is available in the repository. It writes fresh raw output to a separate directory. Review and anonymize that output before publishing; do not overwrite the existing evidence.
