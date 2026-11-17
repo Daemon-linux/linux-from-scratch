@@ -42,7 +42,7 @@ capture 14-hostname.txt hostnamectl status
 capture 15-resolvectl-status.txt resolvectl status
 capture 16-resolved-service.txt systemctl status systemd-resolved --no-pager
 capture 17-networkd-service.txt systemctl status systemd-networkd --no-pager
-capture 18-resolv-conf.txt bash -c 'printf "resolv.conf symlink:\\n"; readlink /etc/resolv.conf; printf "\\nresolv.conf contents:\\n"; cat /etc/resolv.conf'
+capture 18-resolv-conf.txt bash -c 'printf "resolv.conf symlink:\n"; readlink /etc/resolv.conf; printf "\nresolv.conf contents:\n"; cat /etc/resolv.conf'
 capture 19-resolved-conf.txt cat /etc/systemd/resolved.conf
 capture 20-network-config-file-list.txt find /etc/systemd/network -maxdepth 1 -type f -print
 capture 21-enabled-services.txt systemctl list-unit-files --state=enabled --no-pager
@@ -53,8 +53,8 @@ capture 25-ipv4-forwarding.txt sysctl net.ipv4.ip_forward
 capture 26-ipv6-forwarding.txt sysctl net.ipv6.conf.all.forwarding
 capture 27-kernel-network-hardening.txt sysctl net.ipv4.conf.all.rp_filter net.ipv4.conf.all.accept_redirects net.ipv4.conf.all.send_redirects net.ipv4.conf.all.accept_source_route net.ipv6.conf.all.accept_redirects
 capture 28-login-definitions.txt cat /etc/login.defs
-capture 29-shell-umask.txt bash -c 'umask'
-capture 30-system-users-shells.txt bash -c "awk -F: '\$7 !~ /(false|nologin)\$/ {print \$1 \":\" \$7}' /etc/passwd"
+capture 29-shell-umask.txt bash -c umask
+capture 30-system-users-shells.txt awk -F: '$7 !~ /(false|nologin)$/ {print $1 ":" $7}' /etc/passwd
 
 printf 'Raw evidence written to: %s\n' "$OUTPUT_DIR"
 printf 'Review and anonymize the output before publishing.\n'
