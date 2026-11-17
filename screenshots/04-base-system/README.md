@@ -10,19 +10,22 @@ This directory contains selected version captures and system-component evidence 
 | `02-shell-and-tool-versions.txt` | Captured shell and development tool versions |
 | `03-filesystem-utilities-versions.txt` | Captured filesystem utility versions |
 | `04-system-library-versions.txt` | Original capture containing the glibc version and one unidentified version string |
+| `04-pkgconf-version.txt` | Follow-up capture explicitly identifying Pkgconf 3.0.5 |
 | `05-network-and-system-utilities.txt` | Captured network and system utility information |
 | `06-installed-base-system-packages.txt` | Corrected explanation of the limits of the earlier presence checklist |
 
-## Unidentified version string
+## Verified Pkgconf version
 
-The original `04-system-library-versions.txt` capture contains:
+The follow-up capture in `04-pkgconf-version.txt` records the command and its output:
 
 ```text
-glibc 2.44
+Command: pkgconf --version
 3.0.5
 ```
 
-The LFS 13.1-systemd book specifies **Pkgconf 3.0.5** ([official package instructions](https://www.linuxfromscratch.org/lfs/view/13.1-systemd/chapter08/pkgconf.html)). This makes Pkgconf a plausible explanation for the unlabelled `3.0.5` value, but the captured file does not include the command or package name. The value is therefore preserved as unidentified and is not counted as verified Pkgconf evidence. If the original LFS system is still available, confirm it with `pkgconf --version` and retain the command alongside its output.
+This confirms that the `pkgconf` command on the original LFS system reported version **3.0.5**, matching the version specified by the [LFS 13.1-systemd Pkgconf instructions](https://www.linuxfromscratch.org/lfs/view/13.1-systemd/chapter08/pkgconf.html).
+
+The original `04-system-library-versions.txt` capture remains unchanged. Its unlabelled `3.0.5` value is still treated as unidentified on its own; the separate follow-up capture provides the explicit command-to-version evidence.
 
 ## Presence checks versus tests
 
