@@ -6,9 +6,6 @@
 /tmp/
 /temp/
 
-# Raw, unfiltered build output; keep curated notes and summaries
-/build-logs/raw/
-
 # Compiled objects and libraries
 *.o
 *.a
