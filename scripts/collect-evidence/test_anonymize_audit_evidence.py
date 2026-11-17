@@ -23,6 +23,12 @@ class AnonymizeTests(unittest.TestCase):
         result = MODULE.anonymize(source)
         self.assertEqual(result, "MAC=<MAC_ADDRESS> IP=192.168.122.54")
 
+    def test_zero_loopback_mac_is_preserved(self) -> None:
+        self.assertEqual(
+            MODULE.anonymize("lo 00:00:00:00:00:00"),
+            "lo 00:00:00:00:00:00",
+        )
+
     def test_link_local_prefix_is_preserved_when_present(self) -> None:
         self.assertEqual(
             MODULE.anonymize("fe80::5054:ff:fe73:b078/64"),
