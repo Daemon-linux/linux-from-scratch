@@ -14,7 +14,7 @@ This directory contains visual and technical evidence for **Linux From Scratch 1
 | `06-kernel-and-bootloader/` | Kernel configuration, modules, boot files and GRUB |
 | `07-testing-and-validation/` | Existing test-log inventory and validation archive |
 | `08-final-system/` | GRUB menu, first boot and final system state |
-| `09-networking-and-system-audit/` | 30 individual network/security command captures, anonymized identifiers and audit documentation |
+| `09-networking-and-system-audit/` | 30 individual networking/security command captures, anonymized identifiers and audit documentation |
 
 ## Build reference
 
