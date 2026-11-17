@@ -1,0 +1,10 @@
+LFS Phase 3 Security and Network Audit
+
+Collected: 2026-11-15T00:57:55+03:30
+Hostname: lfs
+Kernel: 7.1.8
+
+This is a read-only configuration audit.
+No firewall, resolver, account, or kernel settings were changed.
+
+Review output before publishing.
