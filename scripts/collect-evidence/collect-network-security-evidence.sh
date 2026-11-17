@@ -56,5 +56,22 @@ capture 28-login-definitions.txt cat /etc/login.defs
 capture 29-shell-umask.txt bash -c umask
 capture 30-system-users-shells.txt awk -F: '$7 !~ /(false|nologin)$/ {print $1 ":" $7}' /etc/passwd
 
+{
+    printf 'LFS Networking and Security Evidence Collection\n\n'
+    printf 'Collected: '
+    date --iso-8601=seconds
+    printf 'Hostname: '
+    hostname
+    printf 'Kernel: '
+    uname -r
+    printf '\nRead-only collection; no system configuration was changed.\n'
+} > "$OUTPUT_DIR/collection-metadata.txt"
+
+if command -v sha256sum >/dev/null 2>&1; then
+    (cd -- "$OUTPUT_DIR" && sha256sum -- *.txt > SHA256SUMS)
+else
+    printf 'sha256sum unavailable; checksums not generated.\n' > "$OUTPUT_DIR/SHA256SUMS"
+fi
+
 printf 'Raw evidence written to: %s\n' "$OUTPUT_DIR"
 printf 'Review and anonymize the output before publishing.\n'
