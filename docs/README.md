@@ -2,12 +2,12 @@
 
 Project-authored explanations that complement the captured evidence. These documents do not replace the official LFS instructions.
 
-- [Build process](build-process.md)
-- [Boot process](boot-process.md)
-- [ELF and dynamic linking](elf-and-dynamic-linking.md)
-- [Testing and validation](testing-and-validation.md)
-- [Test archive audit](test-archive-audit.md)
-- [Networking and security baseline audit](networking-and-security-audit.md)
+- [Build process](build-process.md) — phases of the LFS build and evidence map.
+- [Boot process](boot-process.md) — firmware, GRUB, Linux kernel and systemd.
+- [ELF and dynamic linking](elf-and-dynamic-linking.md) — executable formats, shared libraries and inspection commands.
+- [Testing and validation](testing-and-validation.md) — interpreting logs and separating presence checks from test results.
+- [Test archive audit](test-archive-audit.md) — findings and limitations from the archived LFS test summaries.
+- [Networking and security baseline audit](networking-and-security-audit.md) — read-only review of network configuration, resolver state, services, accounts, firewall visibility and selected kernel parameters.
 
 ## Documentation rules
 
