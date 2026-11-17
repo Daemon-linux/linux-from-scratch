@@ -1,0 +1,33 @@
+Command: systemctl status systemd-networkd --no-pager
+
+● systemd-networkd.service - Network Management
+     Loaded: loaded (/usr/lib/systemd/system/systemd-networkd.service; enabled; preset: enabled)
+     Active: active (running) since Sun 2026-11-15 00:57:14 +0330; 40s ago
+ Invocation: <INVOCATION_ID>
+TriggeredBy: ● systemd-networkd-varlink-metrics.socket
+             ● systemd-networkd-varlink.socket
+             ● systemd-networkd-resolve-hook.socket
+             ● systemd-networkd.socket
+       Docs: man:systemd-networkd.service(8)
+             man:org.freedesktop.network1(5)
+   Main PID: 244 (systemd-network)
+     Status: "Processing requests..."
+      Tasks: 1 (limit: 14274)
+   FD Store: 0 (limit: 512)
+     Memory: 3.8M (peak: 4.1M)
+        CPU: 23ms
+     CGroup: /system.slice/systemd-networkd.service
+             └─244 /usr/lib/systemd/systemd-networkd
+
+Nov 15 00:57:14 lfs systemd-networkd[244]: lo: Link UP
+Nov 15 00:57:14 lfs systemd-networkd[244]: lo: Gained carrier
+Nov 15 00:57:14 lfs systemd[1]: Started Network Management.
+Nov 15 00:57:14 lfs systemd-networkd[244]: eth0: Interface name change detected, renamed to enp1s0.
+Nov 15 00:57:14 lfs systemd-networkd[244]: enp1s0: Configuring with /etc/systemd/network/10-ethernet-dhcp.network.
+Nov 15 00:57:14 lfs systemd-networkd[244]: enp1s0: Link UP
+Nov 15 00:57:14 lfs systemd-networkd[244]: enp1s0: Gained carrier
+Nov 15 00:57:16 lfs systemd-networkd[244]: enp1s0: Gained IPv6LL
+Nov 15 00:57:17 lfs systemd-networkd[244]: enp1s0: DHCPv4 address 192.168.122.54/24, gateway 192.168.122.1 acquired from 192.168.122.1
+Nov 15 00:57:17 lfs systemd-networkd[244]: Could not set hostname: Access denied
+
+Exit status: 0

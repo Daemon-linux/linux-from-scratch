@@ -1,0 +1,5 @@
+Command: bash -c awk -F: '$7 !~ /(false|nologin)$/ {print $1 ":" $7}' /etc/passwd
+
+root:/bin/bash
+
+Exit status: 0

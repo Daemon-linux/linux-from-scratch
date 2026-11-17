@@ -8,11 +8,25 @@ These scripts collect selected information from the system where they are execut
 | `collect-kernel-bootloader-evidence.sh` | Captures kernel, modules, boot files and GRUB information |
 | `collect-testing-validation-evidence.sh` | Inventories existing package test logs and extracts recognizable counters |
 | `collect-final-system-evidence.sh` | Captures final system, kernel, systemd and filesystem state |
+| `collect-network-security-evidence.sh` | Read-only collection of 30 networking/security command outputs with correct exit-status capture |
+| `anonymize-audit-evidence.py` | Writes anonymized copies of text evidence without modifying originals |
 
-## Execution
+## Network/security evidence
 
-The scripts default to output directories under `/root/`. Run them with appropriate privileges inside the LFS system, or provide an alternate output directory as the first argument where supported.
+Run the collector with Bash and an optional output directory:
 
-Review each script before execution. Captured reports may contain machine-specific details such as disk names, mount points, hostnames and hardware information.
+```bash
+bash scripts/collect-evidence/collect-network-security-evidence.sh /path/to/raw-evidence
+```
 
-These are collectors, not installers. They do not modify the bootloader or kernel configuration. The testing collector does not rerun package test suites.
+The collector writes raw output only. It does not change system configuration. Raw captures may contain machine-specific identifiers; create a separate anonymized copy before publishing:
+
+```bash
+python3 scripts/collect-evidence/anonymize-audit-evidence.py /path/to/raw-evidence /path/to/anonymized-evidence
+```
+
+Review every anonymized file manually. Do not overwrite the originals.
+
+## General execution
+
+Review each script before execution. Captured reports may contain host-specific details such as disk names, mount points, hostnames and hardware information. These scripts are collectors, not installers.

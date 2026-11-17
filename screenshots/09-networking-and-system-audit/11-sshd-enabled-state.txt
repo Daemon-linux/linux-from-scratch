@@ -1,0 +1,5 @@
+Command: systemctl is-enabled sshd
+
+not-found
+
+Exit status: 4

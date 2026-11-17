@@ -1,0 +1,29 @@
+Command: systemctl status systemd-resolved --no-pager
+
+● systemd-resolved.service - Network Name Resolution
+     Loaded: loaded (/usr/lib/systemd/system/systemd-resolved.service; enabled; preset: enabled)
+     Active: active (running) since Sun 2026-11-15 00:57:14 +0330; 41s ago
+ Invocation: <INVOCATION_ID>
+TriggeredBy: ● systemd-resolved-varlink.socket
+             ● systemd-resolved-monitor.socket
+       Docs: man:systemd-resolved.service(8)
+             man:org.freedesktop.resolve1(5)
+             https://systemd.io/WRITING_NETWORK_CONFIGURATION_MANAGERS
+             https://systemd.io/WRITING_RESOLVER_CLIENTS
+   Main PID: 178 (systemd-resolve)
+     Status: "Processing requests..."
+      Tasks: 1 (limit: 14274)
+     Memory: 4.5M (peak: 4.6M)
+        CPU: 25ms
+     CGroup: /system.slice/systemd-resolved.service
+             └─178 /usr/lib/systemd/systemd-resolved
+
+Nov 15 00:57:14 lfs systemd-resolved[178]: Positive Trust Anchors:
+Nov 15 00:57:14 lfs systemd-resolved[178]: . IN DS 20326 8 2 e06d44b80b8f1d39a95c0b0d7c65d08458e880409bbc683457104237c7f8ec8d
+Nov 15 00:57:14 lfs systemd-resolved[178]: . IN DS 38696 8 2 683d2d0acb8c9b712a1948b27f741219298d0a450d612c483af444a4c0fb2b16
+Nov 15 00:57:14 lfs systemd-resolved[178]: Negative trust anchors: home.arpa 10.in-addr.arpa 16.172.in-addr.arpa 17.172.in-addr.arpa 18.172.in-addr.arpa 19.172.in-addr.arpa 20.172.in-addr.arpa 21.172.in-addr.arpa 22.172.in-addr.arpa 23.172.in-addr.arpa 24.172.in-addr.arpa 25.172.in-addr.arpa 26.172.in-addr.arpa 27.172.in-addr.arpa 28.172.in-addr.arpa 29.172.in-addr.arpa 30.172.in-addr.arpa 31.172.in-addr.arpa 170.0.0.192.in-addr.arpa 171.0.0.192.in-addr.arpa 168.192.in-addr.arpa d.f.ip6.arpa ipv4only.arpa resolver.arpa corp home internal intranet lan local private test
+Nov 15 00:57:14 lfs systemd-resolved[178]: Using system hostname 'lfs'.
+Nov 15 00:57:14 lfs systemd[1]: Started Network Name Resolution.
+Nov 15 00:57:14 lfs systemd-resolved[178]: Switching to fallback DNS server 1.1.1.1#one.one.one.one.
+
+Exit status: 0

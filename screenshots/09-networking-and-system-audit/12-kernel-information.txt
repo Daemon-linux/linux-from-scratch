@@ -1,0 +1,5 @@
+Command: uname -a
+
+Linux lfs 7.1.8 #1 SMP PREEMPT_DYNAMIC Wed Nov 4 17:56:56 +0330 2026 x86_64 GNU/Linux
+
+Exit status: 0

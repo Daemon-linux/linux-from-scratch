@@ -1,0 +1,3 @@
+Command: nft list ruleset
+
+Command unavailable: nft
