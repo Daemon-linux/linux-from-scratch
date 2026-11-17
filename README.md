@@ -48,7 +48,7 @@ See [the build reference](references/BUILD-REFERENCE.md) and [build environment 
 | [06 — Kernel and bootloader](screenshots/06-kernel-and-bootloader/README.md) | Kernel configuration, modules, boot files and GRUB |
 | [07 — Testing and validation](screenshots/07-testing-and-validation/README.md) | Existing test-log inventory and validation limitations |
 | [08 — Final system](screenshots/08-final-system/README.md) | GRUB menu, first boot and final system state |
-| [09 — Networking and system audit](screenshots/09-networking-and-system-audit/README.md) | 30 anonymized network/security command captures and audit report |
+| [09 — Networking and security baseline audit](screenshots/09-networking-and-system-audit/README.md) | 30 anonymized network/security command captures and audit report |
 
 The `screenshots/` directory retains its historical name, but includes text captures, scripts and archives as well as images.
 
