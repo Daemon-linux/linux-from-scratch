@@ -7,10 +7,10 @@ import argparse
 import re
 from pathlib import Path
 
-MAC_RE = re.compile(r"(?i)\\b(?:[0-9a-f]{2}:){5}[0-9a-f]{2}\\b")
-IPV6_LL_RE = re.compile(r"(?i)\\bfe80::[0-9a-f:]+(?:/\\d{1,3})?\\b")
+MAC_RE = re.compile(r"(?i)\b(?:[0-9a-f]{2}:){5}[0-9a-f]{2}\b")
+IPV6_LL_RE = re.compile(r"(?i)\bfe80::[0-9a-f:]+(?:/\d{1,3})?\b")
 UUID_FIELD_RE = re.compile(
-    r"(?im)(?P<prefix>\\b(?:Machine\\s+ID|Boot\\s+ID|Product\\s+UUID|Hardware\\s+UUID|Invocation(?:\\s+ID)?)\\s*:\\s*)"
+    r"(?im)(?P<prefix>\b(?:Machine\s+ID|Boot\s+ID|Product\s+UUID|Hardware\s+UUID|Invocation(?:\s+ID)?)\s*:\s*)"
     r"(?P<value>[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}|[0-9a-f]{32})"
 )
 
@@ -31,8 +31,7 @@ def anonymize(text: str) -> str:
         return match.group("prefix") + token
 
     text = UUID_FIELD_RE.sub(replace_uuid, text)
-    # systemctl status formats Invocation IDs without the word "ID".
-    text = re.sub(r"(?im)(\\bInvocation:\\s*)[0-9a-f]{32}\\b", r"\\1<INVOCATION_ID>", text)
+    text = re.sub(r"(?im)(\bInvocation:\s*)[0-9a-f]{32}\b", r"\1<INVOCATION_ID>", text)
     return text
 
 def main() -> int:
