@@ -85,6 +85,21 @@ class AnonymizeTests(unittest.TestCase):
             self.assertNotEqual(result.returncode, 0)
             self.assertIn("must not overlap", result.stderr)
 
+    def test_cli_rejects_destination_that_contains_source(self) -> None:
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            source = root / "parent" / "source"
+            source.mkdir(parents=True)
+            destination = source.parent
+            result = subprocess.run(
+                [sys.executable, str(SCRIPT), str(source), str(destination)],
+                check=False,
+                capture_output=True,
+                text=True,
+            )
+            self.assertNotEqual(result.returncode, 0)
+            self.assertIn("must not overlap", result.stderr)
+
 
 if __name__ == "__main__":
     unittest.main()
