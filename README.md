@@ -20,6 +20,18 @@ A hands-on build of a complete Linux system from source, following the **Linux F
 
 This status describes the existence of a bootable system; it does **not** mean every package test suite passed. Test results are documented separately and must be interpreted from their original logs.
 
+## Projects
+
+| Project | Description | Status |
+|---|---|---|
+| [Linux From Scratch](https://github.com/Daemon-linux/linux-from-scratch) | Building a Linux system from source | **Completed** |
+| Homelab Infrastructure | VMware ESXi and nested virtualization | In Progress |
+| Networking Labs | Routing, switching and network labs | Planned |
+| Linux Administration | Linux administration and troubleshooting | In Progress |
+| Cybersecurity Labs | Defensive security and hardening | Planned |
+| Automation Labs | Bash, Python and infrastructure automation | Planned |
+| Technical Notes | Technical documentation and notes | Active |
+
 ## Build environment
 
 | Component | Configuration |
