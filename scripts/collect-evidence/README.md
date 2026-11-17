@@ -19,7 +19,7 @@ Run the collector with Bash and an optional output directory:
 bash scripts/collect-evidence/collect-network-security-evidence.sh /path/to/raw-evidence
 ```
 
-The collector writes raw output, collection metadata, and a SHA256 checksum manifest. It does not change system configuration. Raw captures may contain machine-specific identifiers; create a separate anonymized copy before publishing:
+The collector writes raw output and collection metadata. When `sha256sum` is available, it also writes a SHA-256 checksum manifest; otherwise it prints a warning and does not create a misleading manifest. It does not change system configuration. Raw captures may contain machine-specific identifiers; create a separate anonymized copy before publishing:
 
 ```bash
 python3 scripts/collect-evidence/anonymize-audit-evidence.py /path/to/raw-evidence /path/to/anonymized-evidence
