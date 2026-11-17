@@ -1,0 +1,22 @@
+Command: resolvectl status
+
+Global
+           Protocols: +LLMNR +mDNS -DNSOverTLS DNSSEC=no/unsupported
+    resolv.conf mode: stub
+  Current DNS Server: 1.1.1.1#one.one.one.one
+Fallback DNS Servers: 1.1.1.1#one.one.one.one 8.8.8.8#dns.google
+                      9.9.9.9#dns.quad9.net 1.0.0.1#one.one.one.one
+                      8.8.4.4#dns.google 149.112.112.112#dns.quad9.net
+                      2606:4700:4700::1111#one.one.one.one
+                      2001:4860:4860::8888#dns.google 2620:fe::fe#dns.quad9.net
+                      2606:4700:4700::1001#one.one.one.one
+                      2001:4860:4860::8844#dns.google 2620:fe::9#dns.quad9.net
+
+Link 2 (enp1s0)
+    Current Scopes: DNS LLMNR/IPv4 LLMNR/IPv6
+         Protocols: +DefaultRoute +LLMNR -mDNS -DNSOverTLS DNSSEC=no/unsupported
+Current DNS Server: 192.168.122.1
+       DNS Servers: 192.168.122.1
+     Default Route: yes
+
+Exit status: 0

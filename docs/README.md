@@ -7,6 +7,7 @@ Project-authored explanations that complement the captured evidence. These docum
 - [ELF and dynamic linking](elf-and-dynamic-linking.md) — executable formats, shared libraries and inspection commands.
 - [Testing and validation](testing-and-validation.md) — interpreting logs and separating presence checks from test results.
 - [Test archive audit](test-archive-audit.md) — findings and limitations from the archived LFS test summaries.
+- [Networking and security baseline audit](networking-and-security-audit.md) — read-only review of network configuration, resolver state, services, accounts, firewall visibility and selected kernel parameters.
 
 ## Documentation rules
 

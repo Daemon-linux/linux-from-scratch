@@ -1,0 +1,6 @@
+Command: getent hosts example.com
+
+2a06:98c1:3122:: example.com
+2a06:98c1:3123:: example.com
+
+Exit status: 0

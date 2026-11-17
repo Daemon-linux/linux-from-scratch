@@ -1,0 +1,28 @@
+Command: stat /etc/passwd /etc/group /etc/shadow
+
+  File: /etc/passwd
+  Size: 862       	Blocks: 8          IO Block: 4096   regular file
+Device: 253,17	Inode: 2359323     Links: 1
+Access: (0644/-rw-r--r--)  Uid: (    0/    root)   Gid: (    0/    root)
+Access: 2026-11-14 20:38:22.537262524 +0330
+Modify: 2026-11-03 22:23:07.700287849 +0330
+Change: 2026-11-03 22:23:07.702696060 +0330
+ Birth: 2026-11-03 22:23:07.699696048 +0330
+  File: /etc/group
+  Size: 488       	Blocks: 8          IO Block: 4096   regular file
+Device: 253,17	Inode: 2359345     Links: 1
+Access: (0644/-rw-r--r--)  Uid: (    0/    root)   Gid: (    0/    root)
+Access: 2026-11-14 20:38:22.537262524 +0330
+Modify: 2026-11-03 22:23:07.712044393 +0330
+Change: 2026-11-03 22:23:07.715696115 +0330
+ Birth: 2026-11-03 22:23:07.711696098 +0330
+  File: /etc/shadow
+  Size: 456       	Blocks: 8          IO Block: 4096   regular file
+Device: 253,17	Inode: 2359330     Links: 1
+Access: (0400/-r--------)  Uid: (    0/    root)   Gid: (    0/    root)
+Access: 2026-11-14 20:39:10.216262524 +0330
+Modify: 2026-11-03 22:23:07.706079053 +0330
+Change: 2026-11-03 22:23:07.708696085 +0330
+ Birth: 2026-11-03 22:23:07.705696073 +0330
+
+Exit status: 0

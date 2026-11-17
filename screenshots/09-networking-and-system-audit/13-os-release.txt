@@ -1,0 +1,5 @@
+Command: cat /etc/os-release
+
+NAME="Linux From Scratch"
+
+Exit status: 0

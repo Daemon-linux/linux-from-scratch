@@ -1,0 +1,24 @@
+Command: systemd-analyze security --no-pager
+
+UNIT                                 EXPOSURE PREDICATE HAPPY
+dbus.service                              9.1 UNSAFE    :-{
+emergency.service                         9.4 UNSAFE    :-{
+getty@tty1.service                        9.5 UNSAFE    :-{
+rescue.service                            9.4 UNSAFE    :-{
+systemd-ask-password-console.service      9.4 UNSAFE    :-{
+systemd-ask-password-wall.service         9.5 UNSAFE    :-{
+systemd-hostnamed.service                 4.1 OK        :-)
+systemd-journald.service                  7.2 MEDIUM    :-|
+systemd-logind.service                    5.2 MEDIUM    :-|
+systemd-machined.service                  7.7 EXPOSED   :-(
+systemd-mountfsd.service                  7.6 EXPOSED   :-(
+systemd-networkd.service                  4.9 OK        :-)
+systemd-nsresourced.service               6.2 MEDIUM    :-|
+systemd-oomd.service                      4.2 OK        :-)
+systemd-resolved.service                  4.3 OK        :-)
+systemd-rfkill.service                    9.2 UNSAFE    :-{
+systemd-timesyncd.service                4.0 OK        :-)
+systemd-udevd.service                     8.7 EXPOSED   :-(
+systemd-userdbd.service                  4.4 OK        :-)
+
+Exit status: 0

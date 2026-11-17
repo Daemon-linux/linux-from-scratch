@@ -1,4 +1,4 @@
-name: Validate shell scripts
+name: Validate audit tooling
 
 on:
   push:
@@ -24,3 +24,34 @@ jobs:
             printf 'Checking %s\n' "$script"
             bash -n "$script"
           done < <(find scripts -type f -name '*.sh' -print0)
+
+      - name: Smoke-test network evidence collector
+        shell: bash
+        run: |
+          set -Eeuo pipefail
+          temporary_directory="$(mktemp -d)"
+          trap 'rm -rf -- "$temporary_directory"' EXIT
+          output_directory="$temporary_directory/evidence"
+          bash scripts/collect-evidence/collect-network-security-evidence.sh "$output_directory"
+          text_file_count="$(find "$output_directory" -maxdepth 1 -type f -name '*.txt' | wc -l)"
+          test "$text_file_count" -eq 31
+          test -f "$output_directory/SHA256SUMS"
+          (cd "$output_directory" && sha256sum --check SHA256SUMS)
+
+  python-validation:
+    name: Python syntax and anonymizer tests
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+
+      - name: Validate Python syntax
+        run: python -m py_compile scripts/collect-evidence/anonymize-audit-evidence.py
+
+      - name: Test anonymizer
+        run: python -m unittest discover -s scripts/collect-evidence -p 'test_*.py' -v

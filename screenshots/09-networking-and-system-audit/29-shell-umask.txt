@@ -1,0 +1,5 @@
+Command: bash -c umask
+
+0022
+
+Exit status: 0

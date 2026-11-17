@@ -1,0 +1,7 @@
+Command: systemctl --failed --no-pager
+
+  UNIT LOAD ACTIVE SUB DESCRIPTION
+
+0 loaded units listed.
+
+Exit status: 0

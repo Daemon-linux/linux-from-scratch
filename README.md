@@ -48,6 +48,7 @@ See [the build reference](references/BUILD-REFERENCE.md) and [build environment 
 | [06 — Kernel and bootloader](screenshots/06-kernel-and-bootloader/README.md) | Kernel configuration, modules, boot files and GRUB |
 | [07 — Testing and validation](screenshots/07-testing-and-validation/README.md) | Existing test-log inventory and validation limitations |
 | [08 — Final system](screenshots/08-final-system/README.md) | GRUB menu, first boot and final system state |
+| [09 — Networking and security baseline audit](screenshots/09-networking-and-system-audit/README.md) | 30 anonymized network/security command captures and audit report |
 
 The `screenshots/` directory retains its historical name, but includes text captures, scripts and archives as well as images.
 
@@ -57,6 +58,7 @@ The `screenshots/` directory retains its historical name, but includes text capt
 - [Boot process: firmware, GRUB, kernel and systemd](docs/boot-process.md)
 - [ELF binaries and dynamic linking](docs/elf-and-dynamic-linking.md)
 - [Testing and validation methodology](docs/testing-and-validation.md)
+- [Networking and security baseline audit](docs/networking-and-security-audit.md)
 - [Troubleshooting](troubleshooting/README.md)
 - [Project sources](references/sources.md)
 
@@ -69,6 +71,7 @@ The `screenshots/` directory retains its historical name, but includes text capt
 - Linux kernel configuration and modules
 - GRUB bootloader and system initialization with systemd
 - Test-log interpretation and troubleshooting
+- Networking, name resolution, service state and security-baseline evidence
 
 ## Evidence policy
 
@@ -76,6 +79,7 @@ The `screenshots/` directory retains its historical name, but includes text capt
 - A command-presence check is not proof that a package test suite passed.
 - A compiler's native target is not automatically the LFS target triplet.
 - Test failures, skips and incomplete records must not be relabeled as successful results.
+- The networking/security audit is read-only; it is not a penetration test or security certification.
 - The LFS book itself is not included; use the official [LFS 13.1-systemd book](https://www.linuxfromscratch.org/lfs/view/13.1-systemd/).
 
 ## License

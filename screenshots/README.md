@@ -14,6 +14,7 @@ This directory contains visual and technical evidence for **Linux From Scratch 1
 | `06-kernel-and-bootloader/` | Kernel configuration, modules, boot files and GRUB |
 | `07-testing-and-validation/` | Existing test-log inventory and validation archive |
 | `08-final-system/` | GRUB menu, first boot and final system state |
+| `09-networking-and-system-audit/` | 30 individual networking/security command captures, anonymized identifiers and audit documentation |
 
 ## Build reference
 
@@ -29,3 +30,5 @@ Official book: https://www.linuxfromscratch.org/lfs/view/13.1-systemd/
 Captured output describes what was reported at collection time. A command-presence check is not a package test result, and a compiler smoke test is not a full toolchain test suite. The compiler capture reporting `x86_64-pc-linux-gnu` is kept distinct from the LFS target triplet. See [the testing methodology](../docs/testing-and-validation.md).
 
 The test archive is retained as collected; its contents should be inspected before drawing package-wide conclusions.
+
+The networking/security evidence is a read-only baseline snapshot, not a penetration test or a firewall verification. See the [networking and security audit](../docs/networking-and-security-audit.md) for scope and limitations.

@@ -1,0 +1,20 @@
+Command: hostnamectl status
+
+ Static hostname: lfs
+       Icon name: computer-vm
+         Chassis: vm 💽
+      Machine ID: <MACHINE_ID>
+         Boot ID: <BOOT_ID>
+    Product UUID: <PRODUCT_UUID>
+  Virtualization: kvm
+Operating System: Linux From Scratch
+          Kernel: Linux 7.1.8
+    Architecture: x86-64
+ Hardware Vendor: QEMU
+  Hardware Model: Standard PC _Q35 + ICH9, 2009_
+Hardware Version: pc-q35-10.2
+Firmware Version: edk2-20260812-8.fc44
+   Firmware Date: Wed 2026-08-12
+    Firmware Age: 3month 3d
+
+Exit status: 0
