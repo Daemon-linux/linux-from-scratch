@@ -68,9 +68,12 @@ capture 30-system-users-shells.txt awk -F: '$7 !~ /(false|nologin)$/ {print $1 "
 } > "$OUTPUT_DIR/collection-metadata.txt"
 
 if command -v sha256sum >/dev/null 2>&1; then
-    (cd -- "$OUTPUT_DIR" && sha256sum -- *.txt > SHA256SUMS)
+    if ! (cd -- "$OUTPUT_DIR" && sha256sum -- *.txt > SHA256SUMS); then
+        rm -f -- "$OUTPUT_DIR/SHA256SUMS"
+        printf 'Warning: checksum generation failed.\n' >&2
+    fi
 else
-    printf 'sha256sum unavailable; checksums not generated.\n' > "$OUTPUT_DIR/SHA256SUMS"
+    printf 'Warning: sha256sum unavailable; no checksum manifest generated.\n' >&2
 fi
 
 printf 'Raw evidence written to: %s\n' "$OUTPUT_DIR"
